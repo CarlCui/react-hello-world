@@ -36,7 +36,7 @@ export class SourceCodeInput extends React.Component<SourceCodeInputProps, any> 
         const { sourceCode, modify } = this.props;
         return (
             <div>
-                <RawInput onModify={modify} />
+                <RawInput onModify={modify} text={sourceCode}/>
                 <RawDisplay text={sourceCode} />
             </div>
         );

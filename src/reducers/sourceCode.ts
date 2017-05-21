@@ -3,7 +3,7 @@ import {Reducer, Action} from 'redux';
 import {MODIFY_SOURCE_CODE} from '../constants';
 import {ModifySourceCodeAction} from '../actions';
 
-const INITIAL_STATE = '';
+const INITIAL_STATE = '123';
 
 export const sourceCodeReducer: Reducer<any> = (state = INITIAL_STATE, action: Action) => {
     switch(action.type) {
