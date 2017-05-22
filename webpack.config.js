@@ -1,5 +1,7 @@
 let path = require('path');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: "./src/index.tsx",
     output: {
@@ -29,8 +31,24 @@ module.exports = {
     // assume a corresponding global variable exists and use that instead.
     // This is important because it allows us to avoid bundling all of our
     // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
+    // externals: {
+    //     "react": "React",
+    //     "react-dom": "ReactDOM"
+    // },
+    devServer: {
+        port: 3000,
+        host: "localhost",
+        historyApiFallback: true,
+        watchOptions: {
+            // if you're using Docker you may need this
+            // aggregateTimeout: 300,
+            // poll: 1000,
+            ignored: /node_modules/
+        }
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: 'src/index.html'
+        })
+    ]
 };
