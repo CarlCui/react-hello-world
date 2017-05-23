@@ -63,7 +63,7 @@ export class TransferAst extends React.Component<TransferAstProps, TransferAstSt
             let value = astNode[prop];
 
             let child: Node = {
-                name: `${prop}: ${value}`,
+                name: `${prop}: ${this.displayValue(value)}`,
                 children: []
             };
 
@@ -72,6 +72,16 @@ export class TransferAst extends React.Component<TransferAstProps, TransferAstSt
             if (value instanceof Object) {
                 this.generateNode(value, child);
             }
+        }
+    }
+
+    private displayValue(value: any): string {
+        if (Array.isArray(value)) {
+            return value.length.toString();
+        } else if (value instanceof Object && value.type) {
+            return value.type;
+        } else {
+            return `${value}`;
         }
     }
 
