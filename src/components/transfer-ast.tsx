@@ -53,11 +53,6 @@ export class TransferAst extends React.Component<TransferAstProps, TransferAstSt
         return astTree;
     }
 
-    // leadingComments?: Array<Comment>;
-    // trailingComments?: Array<Comment>;
-    // loc?: SourceLocation | null;
-    // range?: [number, number];
-
     private generateNode(astNode: any, parent: Node): void {
         for (let prop in astNode) {
             let value = astNode[prop];
