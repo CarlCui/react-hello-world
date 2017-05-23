@@ -5,7 +5,7 @@ import {ModifySourceCodeAction} from '../actions';
 
 const INITIAL_STATE = '123';
 
-export const sourceCodeReducer: Reducer<any> = (state = INITIAL_STATE, action: Action) => {
+export const sourceCodeReducer: Reducer<string> = (state = INITIAL_STATE, action: Action) => {
     switch(action.type) {
         case MODIFY_SOURCE_CODE:
             return (<ModifySourceCodeAction>action).newValue;

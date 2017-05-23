@@ -8,6 +8,10 @@ import {reducers} from './reducers';
 
 import { App } from './components/app';
 
+declare var require: any;
+
+require('./styles/styles.scss');
+
 const store = createStore(reducers,composeWithDevTools(
 //   applyMiddleware(...middleware),
 //   // other store enhancers if any
