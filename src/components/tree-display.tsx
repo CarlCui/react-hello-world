@@ -30,8 +30,8 @@ export class TreeDisplay extends React.Component<TreeDisplayProps, void> {
         super(props);
 
         this.margin = {top: 20, right: 90, bottom: 30, left: 90};
-        this.width = 960 - this.margin.left - this.margin.right;
-        this.height = 500 - this.margin.top - this.margin.bottom;
+        this.width = 3000 - this.margin.left - this.margin.right;
+        this.height = 3000 - this.margin.top - this.margin.bottom;
         this.treemap = d3.tree().size([this.height, this.width]);
     }
 
@@ -39,6 +39,12 @@ export class TreeDisplay extends React.Component<TreeDisplayProps, void> {
         return (
             <div id="tree_svg"></div>
         )
+    }
+
+    public componentDidUpdate(prevProps: TreeDisplayProps, prevState: void) {
+        d3.select('#tree_svg').select('svg').remove();
+
+        this.initializeTree();
     }
 
     public componentDidMount(): void {
